@@ -8,7 +8,7 @@
 
 function ConvertHandler() {
 
-  this.getNum = function(input, res) {
+  this.getNum = function(input) {
     const splitInput = input.split(/([a-zA-Z]+)/);
     let result;
     if (!splitInput[0]) {
@@ -24,7 +24,7 @@ function ConvertHandler() {
     return result;
   };
 
-  this.getUnit = function(input, res) {
+  this.getUnit = function(input) {
     const splitInput = input.split(/([a-zA-Z]+)/);
     let result;
     if (!splitInput[1]) {
@@ -71,11 +71,10 @@ function ConvertHandler() {
     return result;
   };
 
-  this.convert = function(initNum, initUnit, error) {
+  this.convert = function(initNum, initUnit) {
     const galToL = 3.78541;
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
-    let result;
 
     switch (initUnit) {
       case 'gal':
@@ -94,10 +93,11 @@ function ConvertHandler() {
         console.log("oops", error)
         if (error == "invalid number" || error == "invalid number and unit") {
           error = "invalid number and unit poop";
+          return error
         } else {
           error = "invalid unit";
+          return error
         };
-        break;
     };
   };
 

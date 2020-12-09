@@ -20,9 +20,9 @@ module.exports = function(app) {
       console.log("---")
       let input = req.query.input;
       console.log("input: ", input)
-      let initNum = convertHandler.getNum(input, res);
-      let initUnit = convertHandler.getUnit(input, res);
-      let returnNum = convertHandler.convert(initNum, initUnit, error);
+      let initNum = convertHandler.getNum(input);
+      let initUnit = convertHandler.getUnit(input);
+      let returnNum = convertHandler.convert(initNum, initUnit);
       let returnUnit = convertHandler.getReturnUnit(initUnit);
       let toString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
       console.log("err:", error)
@@ -41,5 +41,4 @@ module.exports = function(app) {
         });
       }
     });
-
 };
