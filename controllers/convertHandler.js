@@ -24,17 +24,20 @@ function ConvertHandler() {
     return result;
   };
 
-  this.getUnit = function(input) {
+  this.getUnit = function(input, error) {
     const splitInput = input.split(/([a-zA-Z]+)/);
     let result;
     if (!splitInput[1]) {
       result = 'none';
-      if (error == "invalid number") {
-        console.log("bad both")
-        error = "invalid number and unit";
-      } else {
+      // if (error) {
+      //   if (error == "invalid number") {
+      //     console.log("bad both")
+      //     error = "invalid number and unit";
+      //   }
+      // } else {
         error = "invalid unit";
-      };
+        return error
+      // };
     } else if (splitInput[1].toLowerCase() == 'l') {
       result = 'L';
     } else {
@@ -90,14 +93,16 @@ function ConvertHandler() {
       case 'km':
         return (initNum / miToKm).toFixed(5);
       default:
-        console.log("oops", error)
-        if (error == "invalid number" || error == "invalid number and unit") {
-          error = "invalid number and unit poop";
-          return error
-        } else {
+        // if (error) {
+        //   console.log("oops", error)
+        //   if (error == "invalid number" || error == "invalid number and unit") {
+        //     error = "invalid number and unit poop";
+        //     return error
+        //   }
+        // } else {
           error = "invalid unit";
           return error
-        };
+        // };
     };
   };
 
