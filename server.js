@@ -27,33 +27,33 @@ app.route('/')
     res.sendFile(process.cwd() + '/views/index.html');
   });
 
-app.get('/api/convert', (req, res) => {
-  const input = req.query.input;
-  console.log(input)
-  const converted = convert(input); // convert.js middleware
-  const initNum = converted[0];
-  const initUnit = converted[1];
-  const returnNum = converted[2];
-  const returnUnit = converted[3];
-  const initial_Units = converted[4];
-  const return_Units = converted[5];
-  const error = converted[6]
-  const string = `${initNum} ${initial_Units} converts to ${returnNum} ${return_Units}`;
-  // console.log(converted);
-  console.log(string);
-  if (error) {
-    res.send(error);
-    throw error;
-  } else {
-    res.json({
-      initNum: parseFloat(initNum),
-      initUnit,
-      returnNum: parseFloat(returnNum),
-      returnUnit,
-      string
-    });
-  }
-})
+// app.get('/api/convert', (req, res) => {
+//   const input = req.query.input;
+//   console.log(input)
+//   const converted = convert(input); // convert.js middleware
+//   const initNum = converted[0];
+//   const initUnit = converted[1];
+//   const returnNum = converted[2];
+//   const returnUnit = converted[3];
+//   const initial_Units = converted[4];
+//   const return_Units = converted[5];
+//   const error = converted[6]
+//   const string = `${initNum} ${initial_Units} converts to ${returnNum} ${return_Units}`;
+//   // console.log(converted);
+//   console.log(string);
+//   if (error) {
+//     res.send(error);
+//     throw error;
+//   } else {
+//     res.json({
+//       initNum: parseFloat(initNum),
+//       initUnit,
+//       returnNum: parseFloat(returnNum),
+//       returnUnit,
+//       string
+//     });
+//   }
+// })
 
 //For FCC testing purposes
 fccTestingRoutes(app);

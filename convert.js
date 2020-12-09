@@ -3,21 +3,16 @@
 module.exports = (input) => {
   let error;
   const splitInput = input.split(/([a-zA-Z]+)/);
-  // console.log(splitInput);
-  // console.log((splitInput[0].match(/\//g)||[]).length);
+
   let initNum;
   if (!splitInput[0]) {
-    // console.log('no number => 1')
     initNum = 1;
   } else if ((splitInput[0].match(/\//g) || []).length === 1) {
-    // console.log('fraction')
     initNum = eval(splitInput[0]);
   } else if (isNaN(splitInput[0])) {
-    // console.error('bad number')
     initNum = 0;
     error = "invalid number";
   } else {
-    // console.log('good number')
     initNum = splitInput[0];
   }
 
