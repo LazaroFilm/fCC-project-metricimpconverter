@@ -21,8 +21,10 @@ module.exports = function (app) {
     try {
       convertHandler.checkErrors(input);
     } catch (error) {
-      res.send(error);
-      throw error;
+      console.log(error)
+      const message = error.message
+      res.send(message);
+      throw message;
     }
     let initNum = convertHandler.getNum(input);
     let initUnit = convertHandler.getUnit(input);

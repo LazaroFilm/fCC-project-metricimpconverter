@@ -24,17 +24,16 @@ function ConvertHandler() {
       unitError = true;
     }
     if (numberError && unitError) {
-      throw "invalid number and unit";
+      throw new Error("invalid number and unit");
     } else if (numberError) {
-      throw "invalid number";
+      throw new Error("invalid number");
     } else if (unitError) {
-      throw "invalid unit";
+      throw new Error("invalid unit");
     }
   };
 
   this.getNum = function (input) {
     const splitInput = input.split(/([a-zA-Z]+)/);
-    let result;
     if (!splitInput[0]) {
       return 1;
     } else {
@@ -44,7 +43,6 @@ function ConvertHandler() {
 
   this.getUnit = function (input) {
     const splitInput = input.split(/([a-zA-Z]+)/);
-    let result;
     if (splitInput[1].toLowerCase() == "l") {
       return "L";
     } else {
@@ -54,26 +52,26 @@ function ConvertHandler() {
 
   this.getReturnUnit = function (initUnit) {
     const returnedUnit = {
-      gal: "L",
-      L: "gal",
-      lbs: "kg",
-      kg: "lbs",
-      mi: "km",
-      km: "mi",
+      'gal': "L",
+      'l': "gal",
+      'lbs': "kg",
+      'kg': "lbs",
+      'mi': "km",
+      'km': "mi",
     };
-    return returnedUnit[initUnit];
+    return returnedUnit[initUnit.toLowerCase()];
   };
 
   this.spellOutUnit = function (unit) {
     const units = {
-      gal: "gallons",
-      L: "liters",
-      lbs: "pounds",
-      kg: "kilos",
-      mi: "miles",
-      km: "kilometers",
+      'gal': "gallons",
+      'l': "liters",
+      'lbs': "pounds",
+      'kg': "kilos",
+      'mi': "miles",
+      'km': "kilometers",
     };
-    return units[unit];
+    return units[unit.toLowerCase()];
   };
 
   this.convert = function (initNum, initUnit) {
