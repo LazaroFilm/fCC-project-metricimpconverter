@@ -13,7 +13,7 @@ GitHub: https://github.com/LazaroFilm/fCC-project-metricimpconverter
 - [x] If my unit of measurement is invalid, returned will be 'invalid unit'.
 - [x] If my number is invalid, returned will be 'invalid number'.
 - [x] If both the unit and number are invalid, returned will be 'invalid number and unit'.
-- [ ] I can use fractions, decimals or both in my parameter(ie. 5, 1/2, 2.5/6), but if nothing is provided it will default to 1.
-- [ ] My return will consist of the initNum, initUnit, returnNum, returnUnit, and string spelling out units in the format '{initNum} {initial_Units} converts to {returnNum} {return_Units}' with the result rounded to 5 decimals.
+- [x] I can use fractions, decimals or both in my parameter(ie. 5, 1/2, 2.5/6), but if nothing is provided it will default to 1.
+- [x] My return will consist of the initNum, initUnit, returnNum, returnUnit, and string spelling out units in the format '{initNum} {initial_Units} converts to {returnNum} {return_Units}' with the result rounded to 5 decimals.
 - [ ] All 16 unit tests are complete and passing.
 - [ ] All 5 functional tests are complete and passing.
