@@ -88,7 +88,8 @@ suite('Unit Tests', function(){
   suite('Function convertHandler.spellOutUnit(unit)', function() {
     
     test('For Each Valid Unit Inputs', function(done) {
-      //see above example for hint
+      let input = "kg"
+      assert.equal(convertHandler.spellOutUnit(input), "kilos")
       done();
     });
     
